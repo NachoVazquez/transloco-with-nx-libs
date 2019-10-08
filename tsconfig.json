@@ -15,7 +15,14 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@transloco-with-libs/transloco-lib-a": [
+        "libs/transloco-lib-a/src/index.ts"
+      ],
+      "@transloco-with-libs/transloco-lib-b": [
+        "libs/transloco-lib-b/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

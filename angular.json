@@ -123,6 +123,68 @@
           }
         }
       }
+    },
+    "transloco-lib-a": {
+      "projectType": "library",
+      "root": "libs/transloco-lib-a",
+      "sourceRoot": "libs/transloco-lib-a/src",
+      "prefix": "transloco-with-libs",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/transloco-lib-a/tsconfig.lib.json",
+              "libs/transloco-lib-a/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/transloco-lib-a/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/transloco-lib-a/jest.config.js",
+            "tsConfig": "libs/transloco-lib-a/tsconfig.spec.json",
+            "setupFile": "libs/transloco-lib-a/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "transloco-lib-b": {
+      "projectType": "library",
+      "root": "libs/transloco-lib-b",
+      "sourceRoot": "libs/transloco-lib-b/src",
+      "prefix": "transloco-with-libs",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/transloco-lib-b/tsconfig.lib.json",
+              "libs/transloco-lib-b/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/transloco-lib-b/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/transloco-lib-b/jest.config.js",
+            "tsConfig": "libs/transloco-lib-b/tsconfig.spec.json",
+            "setupFile": "libs/transloco-lib-b/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {
