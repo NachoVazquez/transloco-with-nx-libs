@@ -1,7 +1,26 @@
+import {
+  TranslocoConfig,
+  TranslocoModule,
+  TRANSLOCO_CONFIG
+} from '@ngneat/transloco';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { translocoLoader } from './transloco.loader';
+import { LocationBComponent } from './location-b.component';
 
 @NgModule({
-  imports: [CommonModule]
+  imports: [CommonModule, TranslocoModule],
+  providers: [
+    {
+      provide: TRANSLOCO_CONFIG,
+      useValue: {
+        availableLangs: ['en', 'es'],
+        defaultLang: 'en'
+      } as TranslocoConfig
+    },
+    translocoLoader
+  ],
+  declarations: [LocationBComponent],
+  exports: [LocationBComponent]
 })
 export class TranslocoLibBModule {}

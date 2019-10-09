@@ -1,21 +1,36 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { translocoLoader } from './transloco.loader';
-import { TranslocoModule, TRANSLOCO_CONFIG, TranslocoConfig } from '@ngneat/transloco';
+import {
+  TranslocoModule,
+  TRANSLOCO_CONFIG,
+  TranslocoConfig
+} from '@ngneat/transloco';
 
+import { TranslocoLibBModule } from '@transloco-with-libs/transloco-lib-b';
+
+import { AppComponent } from './app.component';
+import { RouterModule } from '@angular/router';
+import { routes } from './app-routes';
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, HttpClientModule, TranslocoModule],
-  providers: [{
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    TranslocoModule,
+    TranslocoLibBModule,
+    RouterModule.forRoot(routes)
+  ],
+  providers: [
+    {
       provide: TRANSLOCO_CONFIG,
       useValue: {
         availableLangs: ['en', 'es'],
         defaultLang: 'en',
-        prodMode: environment.production,
+        prodMode: environment.production
       } as TranslocoConfig
     },
     translocoLoader
