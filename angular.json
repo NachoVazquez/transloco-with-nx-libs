@@ -185,6 +185,37 @@
           "styleext": "scss"
         }
       }
+    },
+    "transloco-config": {
+      "projectType": "library",
+      "root": "libs/transloco-config",
+      "sourceRoot": "libs/transloco-config/src",
+      "prefix": "transloco-with-libs",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/transloco-config/tsconfig.lib.json",
+              "libs/transloco-config/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/transloco-config/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/transloco-config/jest.config.js",
+            "tsConfig": "libs/transloco-config/tsconfig.spec.json",
+            "setupFile": "libs/transloco-config/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {

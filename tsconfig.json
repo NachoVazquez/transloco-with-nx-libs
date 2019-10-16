@@ -25,6 +25,9 @@
       ],
       "@transloco-with-libs/transloco-lib-b": [
         "libs/transloco-lib-b/src/index.ts"
+      ],
+      "@transloco-with-libs/transloco-config": [
+        "libs/transloco-config/src/index.ts"
       ]
     }
   },
